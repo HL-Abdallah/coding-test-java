@@ -15,7 +15,7 @@ public class Product {
 
     public Product(String nom, float price, String barcode, String state) {
     	super();
-		this.nom = nom;
+		this.name = nom;
 		this.price = price;
 		this.barcode = barcode;
 		this.state = state;
@@ -24,7 +24,7 @@ public class Product {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String nom;
+    private String name;
     private float price;
     private String barcode;
     @Nullable private String state;

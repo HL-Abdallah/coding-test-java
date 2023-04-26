@@ -15,8 +15,8 @@ public class ProductService {
     public Inventory getProductsData() {
         Inventory inventory = new Inventory();
         for(Product p: productRepository.findAll()) {
-            if (inventory.containsKey(p.getNom())) {
-                InventoryItem productItem = inventory.get(p.getNom());
+            if (inventory.containsKey(p.getName())) {
+                InventoryItem productItem = inventory.get(p.getName());
                 if (!p.getState().equals("broken")) {
                     productItem.setQty(productItem.getQty() + 1);
                     productItem.setTotalPrice(productItem.getTotalPrice() + p.getPrice());
@@ -24,7 +24,7 @@ public class ProductService {
                 }
             }
             else {
-                inventory.put(p.getNom(), new InventoryItem(p.getNom().toLowerCase(), p.getPrice(), 1));
+                inventory.put(p.getName(), new InventoryItem(p.getName().toLowerCase(), p.getPrice(), 1));
             }
         }
         return inventory;
